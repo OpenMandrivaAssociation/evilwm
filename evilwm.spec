@@ -1,12 +1,12 @@
 %define	name	evilwm
-%define	version	0.99.25
+%define	version	1.0.0
 %define	release	%mkrel 1
 
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 URL:		http://evilwm.sourceforge.net/
-Source0:	http://www.6809.org.uk/evilwm/%{name}-%{version}.tar.bz2
+Source0:	http://www.6809.org.uk/evilwm/%{name}-%{version}.tar.gz
 License:	Public Domain
 Group:		Graphical desktop/Other
 Summary:	A minimalist window manager for the X Window System
