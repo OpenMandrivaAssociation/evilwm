@@ -1,6 +1,6 @@
 %define	name	evilwm
 %define	version	1.0.0
-%define	release	%mkrel 1
+%define	release	%mkrel 2
 
 Name:		%{name}
 Version:	%{version}
@@ -10,7 +10,11 @@ Source0:	http://www.6809.org.uk/evilwm/%{name}-%{version}.tar.gz
 License:	Public Domain
 Group:		Graphical desktop/Other
 Summary:	A minimalist window manager for the X Window System
-BuildRequires:	nas-devel lesstif-devel X11-devel
+BuildRequires:	nas-devel 
+BuildRequires:	lesstif-devel 
+BuildRequires:	libx11-devel
+BuildRequires:	libxext-devel
+BuildRequires:	libxrandr-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
