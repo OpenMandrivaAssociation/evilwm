@@ -15,6 +15,7 @@ BuildRequires:	lesstif-devel
 BuildRequires:	libx11-devel
 BuildRequires:	libxext-devel
 BuildRequires:	libxrandr-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 evilwm is a minimalist window manager for the X Window System.
