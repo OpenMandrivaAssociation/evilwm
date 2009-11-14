@@ -1,6 +1,6 @@
 %define	name	evilwm
-%define	version	1.0.0
-%define	release	%mkrel 5
+%define	version	1.0.1
+%define	release	%mkrel 1
 
 Name:		%{name}
 Version:	%{version}
