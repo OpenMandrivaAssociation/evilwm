@@ -43,18 +43,18 @@ perl -pi -e 's!^#DEFINES.*-DVDESK.*!DEFINES += -DVDESK!' Makefile
 %make CC="gcc $RPM_OPT_FLAGS" LDPATH="-L%{_prefix}/X11R6/%{_lib}"
 
 %install
-%{__rm} -rf $RPM_BUILD_ROOT
+%{__rm} -rf %{buildroot}
 %{makeinstall_std}
 
 # startfile
-%{__cat} > $RPM_BUILD_ROOT%{_bindir}/start%{name} << EOF
+%{__cat} > %{buildroot}%{_bindir}/start%{name} << EOF
 #!/bin/sh
 exec %{_bindir}/%{name}
 EOF
 
 # session file
-%{__install} -d $RPM_BUILD_ROOT%{_sysconfdir}/X11/wmsession.d
-%{__cat} > $RPM_BUILD_ROOT%{_sysconfdir}/X11/wmsession.d/16%{name} << EOF
+%{__install} -d %{buildroot}%{_sysconfdir}/X11/wmsession.d
+%{__cat} > %{buildroot}%{_sysconfdir}/X11/wmsession.d/16%{name} << EOF
 NAME=%{name}
 EXEC=%{_bindir}/start%{name}
 DESC=%{name} window manager
@@ -63,7 +63,7 @@ exec %{_bindir}/start%{name}
 EOF
 
 %clean
-%{__rm} -rf $RPM_BUILD_ROOT
+%{__rm} -rf %{buildroot}
 
 %files
 %defattr(644,root,root,755)
