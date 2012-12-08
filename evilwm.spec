@@ -1,6 +1,6 @@
 %define	name	evilwm
 %define	version	1.0.1
-%define	release	%mkrel 3
+%define	release	%mkrel 4
 
 Name:		%{name}
 Version:	%{version}
@@ -43,18 +43,18 @@ perl -pi -e 's!^#DEFINES.*-DVDESK.*!DEFINES += -DVDESK!' Makefile
 %make CC="gcc $RPM_OPT_FLAGS" LDPATH="-L%{_prefix}/X11R6/%{_lib}"
 
 %install
-%{__rm} -rf %{buildroot}
+%{__rm} -rf $RPM_BUILD_ROOT
 %{makeinstall_std}
 
 # startfile
-%{__cat} > %{buildroot}%{_bindir}/start%{name} << EOF
+%{__cat} > $RPM_BUILD_ROOT%{_bindir}/start%{name} << EOF
 #!/bin/sh
 exec %{_bindir}/%{name}
 EOF
 
 # session file
-%{__install} -d %{buildroot}%{_sysconfdir}/X11/wmsession.d
-%{__cat} > %{buildroot}%{_sysconfdir}/X11/wmsession.d/16%{name} << EOF
+%{__install} -d $RPM_BUILD_ROOT%{_sysconfdir}/X11/wmsession.d
+%{__cat} > $RPM_BUILD_ROOT%{_sysconfdir}/X11/wmsession.d/16%{name} << EOF
 NAME=%{name}
 EXEC=%{_bindir}/start%{name}
 DESC=%{name} window manager
@@ -63,7 +63,7 @@ exec %{_bindir}/start%{name}
 EOF
 
 %clean
-%{__rm} -rf %{buildroot}
+%{__rm} -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
@@ -73,3 +73,81 @@ EOF
 %defattr(755,root,root,755)
 %{_bindir}/start%{name}
 %{_bindir}/%{name}
+
+
+%changelog
+* Tue May 03 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.1-3mdv2011.0
++ Revision: 664153
+- mass rebuild
+
+* Thu Dec 02 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.1-2mdv2011.0
++ Revision: 605108
+- rebuild
+
+* Sat Nov 14 2009 Funda Wang <fwang@mandriva.org> 1.0.1-1mdv2010.1
++ Revision: 465989
+- new version 1.0.1
+
+* Wed Sep 02 2009 Christophe Fergeau <cfergeau@mandriva.com> 1.0.0-5mdv2010.0
++ Revision: 424391
+- rebuild
+
+* Tue Jun 17 2008 Thierry Vignaud <tv@mandriva.org> 1.0.0-4mdv2009.0
++ Revision: 220730
+- rebuild
+
+* Sat Jan 12 2008 Thierry Vignaud <tv@mandriva.org> 1.0.0-3mdv2008.1
++ Revision: 149702
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Wed Jul 18 2007 Adam Williamson <awilliamson@mandriva.org> 1.0.0-2mdv2008.0
++ Revision: 53331
+- clean buildrequires, rebuild with new lesstif
+
+* Sun Jul 08 2007 Nicolas Vigier <nvigier@mandriva.com> 1.0.0-1mdv2008.0
++ Revision: 49646
+- new version
+- Import evilwm
+
+
+
+* Thu Apr 27 2006 Lenny Cartier <lenny@mandriva.com> 0.99.25-1mdk
+- 0.99.25
+
+* Wed Apr 26 2006 Per Øyvind Karlsen <pkarlsen@mandriva.com> 0.99.24-1mdk
+- 0.99.24
+- add url to source
+
+* Wed Feb 01 2006 Per Øyvind Karlsen <pkarlsen@mandriva.com> 0.99.22-2mdk
+- lib64 fix
+- fix buildrequires
+
+* Tue Jan 31 2006 Lenny Cartier <lenny@mandriva.com> 0.99.22-1mdk
+- 0.99.22
+
+* Fri Jun 03 2005 Eskild Hustvedt <eskild@mandriva.org> 0.99.18-2mdk
+- Make rpmlint happy
+
+* Fri Jun 03 2005 Eskild Hustvedt <eskild@mandriva.org> 0.99.18-1mdk
+- New version 0.99.18
+- %%mkrel
+
+* Mon Nov 08 2004 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 0.99.17-3mdk
+- rebuild
+
+* Thu Oct 30 2003 Olivier Thauvin <thauvin@aerov.jussieu.fr> 0.99.17-2mdk
+- enable virtual desktop support
+
+* Thu Oct 30 2003 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 0.99.17-1mdk
+- 0.99.17
+- fix buildrequires (lib64..)
+
+* Fri Sep 05 2003 Marcel Pol <mpol@gmx.net> 0.99.14-2mdk
+- buildrequires
+
+* Sun Jun 01 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 0.99.14-1mdk
+- initial mdk release
