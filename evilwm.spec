@@ -1,6 +1,7 @@
 %define	name	evilwm
 %define	version	1.0.1
-%define	release	%mkrel 4
+%define	release	5
+%define debug_package %{nil}
 
 Name:		%{name}
 Version:	%{version}
