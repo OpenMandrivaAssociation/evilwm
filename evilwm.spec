@@ -2,8 +2,8 @@
 
 Summary:	A minimalist window manager for the X Window System
 Name:		evilwm
-Version:	1.0.1
-Release:	5
+Version:	1.1.0
+Release:	1
 License:	Public Domain
 Group:		Graphical desktop/Other
 Url:		http://evilwm.sourceforge.net/
@@ -62,5 +62,6 @@ EOF
 %config(noreplace) %{_sysconfdir}/X11/wmsession.d/16%{name}
 %{_bindir}/start%{name}
 %{_bindir}/%{name}
+%{_datadir}/applications/%{name}.desktop
 %{_mandir}/man1/%{name}.1*
 
