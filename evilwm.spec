@@ -6,7 +6,7 @@ Version:	1.1.0
 Release:	1
 License:	Public Domain
 Group:		Graphical desktop/Other
-Url:		http://evilwm.sourceforge.net/
+Url:		https://evilwm.sourceforge.net/
 Source0:	http://www.6809.org.uk/evilwm/%{name}-%{version}.tar.gz
 
 BuildRequires:	lesstif-devel 
