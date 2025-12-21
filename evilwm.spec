@@ -9,6 +9,7 @@ Group:		Graphical desktop/Other
 Url:		https://evilwm.sourceforge.net/
 Source0:	http://www.6809.org.uk/evilwm/%{name}-%{version}.tar.gz
 
+BuildRequires:	make
 BuildRequires:	lesstif-devel 
 BuildRequires:	nas-devel 
 BuildRequires:	pkgconfig(x11)
